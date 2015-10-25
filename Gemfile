@@ -34,6 +34,7 @@ gem 'annotate'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 
+gem 'devise'
 gem 'activeadmin', '~> 1.0.0.pre2'
 
 group :development, :test do
