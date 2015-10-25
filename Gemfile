@@ -31,6 +31,9 @@ gem 'autoprefixer-rails'
 
 gem 'annotate'
 
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
+
 gem 'activeadmin', '~> 1.0.0.pre2'
 
 group :development, :test do
