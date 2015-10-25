@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Catering
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags 
+  body
+    .container
+      .row
+        - if notice
+          .notice = flash[:notice]
+        - if alert
+          .alert = flash[:alert]
+        == yield
