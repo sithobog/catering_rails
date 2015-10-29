@@ -37,6 +37,9 @@ gem 'mini_magick'
 gem 'devise'
 gem 'activeadmin', '~> 1.0.0.pre2'
 
+gem 'grape'
+gem 'grape_logging'
+
 group :development, :test do
 	gem 'factory_girl_rails'
 	gem 'rspec-rails'
