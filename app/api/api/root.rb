@@ -7,8 +7,6 @@ module API
 
 	class Root < Grape::API
 
-		prefix 'api'
-
 		rescue_from Grape::Exceptions::Validation do |e|
       Rack::Response.new({'errors' => e.message, 'param' => e.param}.to_json, 422, {"Content-Type" => "application/json"})
     end
@@ -24,8 +22,6 @@ module API
     rescue_from UnauthorizedError do |e|
       Rack::Response.new({'errors' => "Invalid API public token", 'message' => "Unauthorized"}.to_json, 401, {"Content-Type" => "application/json"})
     end
-
-
 
 		use API::Logger
 

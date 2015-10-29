@@ -39,6 +39,7 @@ gem 'activeadmin', '~> 1.0.0.pre2'
 
 gem 'grape'
 gem 'grape_logging'
+gem 'grape-swagger'
 
 group :development, :test do
 	gem 'factory_girl_rails'
