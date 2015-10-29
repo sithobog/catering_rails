@@ -7,6 +7,10 @@ module API
 
 	class Root < Grape::API
 
+    #before do
+    #  error!("401 Unauthorized", 401) unless authenticated
+    #end
+
 		rescue_from Grape::Exceptions::Validation do |e|
       Rack::Response.new({'errors' => e.message, 'param' => e.param}.to_json, 422, {"Content-Type" => "application/json"})
     end

@@ -6,6 +6,8 @@ module API
 		autoload :DailyMenus, 'v1/resources/daily_menus'
 		autoload :Dishes, 'v1/resources/dishes'
 		autoload :Sprints, 'v1/resources/sprints'
+		autoload :Helpers, 'v1/resources/helpers'
+		autoload :Sessions, 'v1/resources/session'
 
 		class Root < Grape::API
 			format :json
@@ -17,6 +19,7 @@ module API
 			mount API::V1::Dishes
 			mount API::V1::Sprints
 			mount API::V1::DailyMenus
+			mount API::V1::Sessions
 
       get "/" do
         {:timenow => Time.zone.now.to_i }
