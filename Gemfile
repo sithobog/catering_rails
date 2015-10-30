@@ -42,8 +42,10 @@ gem 'grape_logging'
 gem 'grape-swagger'
 
 group :development, :test do
+	gem 'api_matchers'
 	gem 'factory_girl_rails'
 	gem 'rspec-rails'
+	gem 'rspec-nc'
 	gem 'fuubar'
 	gem 'database_cleaner'
   gem 'byebug'

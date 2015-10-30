@@ -1,5 +1,5 @@
 class DailyRation < ActiveRecord::Base
-	has_one :sprint
-	has_one :daily_menu
-	has_one :dish
+	belongs_to :sprint
+	belongs_to :daily_menu
+	belongs_to :dish
 end

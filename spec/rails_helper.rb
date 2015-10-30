@@ -9,11 +9,13 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
+
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+  config.include APIMatchers::RSpecMatchers
+  
+  config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: /spec\/api/
 
   config.use_transactional_fixtures = true
-
   config.infer_spec_type_from_file_location!
 end

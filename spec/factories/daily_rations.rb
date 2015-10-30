@@ -1,6 +1,10 @@
 FactoryGirl.define do
   factory :daily_ration do
-    
-  end
+    price 25
+    quantity 3
 
+    association :daily_menu
+    association :sprint
+    association :dish
+  end
 end

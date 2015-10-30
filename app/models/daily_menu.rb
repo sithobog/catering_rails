@@ -1,6 +1,4 @@
 class DailyMenu < ActiveRecord::Base
-	has_many :daily_rations
-
 	before_save :delete_nils_in_dish_ids
 
   private
