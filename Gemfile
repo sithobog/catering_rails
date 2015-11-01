@@ -41,6 +41,8 @@ gem 'grape'
 gem 'grape_logging'
 gem 'grape-swagger'
 
+gem 'rack-cors'
+
 group :development, :test do
 	gem 'api_matchers'
 	gem 'factory_girl_rails'

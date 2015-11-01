@@ -3,7 +3,10 @@ module API
 		class Sessions < Grape::API
 		 version 'v1', using: :path
 		 format :json
-		 prefix :api
+		 default_format :json
+     default_error_formatter :json
+     content_type :json, 'application/json'
+		 #prefix :api
 
 		 resource :sessions do
 
@@ -35,7 +38,7 @@ module API
 		     else
 		     	 # method ensure_authentication_token is called before save
 		       user.save
-		       {status: 'ok', token: user.authentication_token}.to_json
+		       {auth: 'true', token: user.authentication_token}#.to_json
 		     end
 		   end
 
