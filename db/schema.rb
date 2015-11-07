@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20151029144136) do
     t.string   "title"
     t.datetime "started_at"
     t.datetime "finished_at"
-    t.integer  "state"
+    t.string   "state"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
