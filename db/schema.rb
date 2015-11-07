@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20151029144136) do
   create_table "daily_rations", force: :cascade do |t|
     t.float    "price"
     t.integer  "quantity"
+    t.integer  "user_id"
     t.integer  "daily_menu_id"
     t.integer  "sprint_id"
     t.integer  "dish_id"
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(version: 20151029144136) do
   add_index "daily_rations", ["daily_menu_id"], name: "index_daily_rations_on_daily_menu_id", using: :btree
   add_index "daily_rations", ["dish_id"], name: "index_daily_rations_on_dish_id", using: :btree
   add_index "daily_rations", ["sprint_id"], name: "index_daily_rations_on_sprint_id", using: :btree
+  add_index "daily_rations", ["user_id"], name: "index_daily_rations_on_user_id", using: :btree
 
   create_table "dishes", force: :cascade do |t|
     t.string   "title"
