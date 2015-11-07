@@ -45,6 +45,9 @@ gem 'grape-swagger'
 
 gem 'rack-cors'
 
+gem 'populator'
+gem 'faker'
+
 group :development, :test do
 	gem 'api_matchers'
 	gem 'factory_girl_rails'
