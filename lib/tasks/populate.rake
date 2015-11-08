@@ -66,7 +66,7 @@ namespace :populate do
     _dishes = Dish.all.pluck(:id)
     DailyMenu.populate 7 do |dm|
       dm.day_number = _number
-      dm.dish_ids = convert_to_pg_array _dishes.sample 5
+      dm.dish_ids = convert_to_pg_array _dishes.sample 15
       dm.max_total = 100..150
       _number +=1
     end
