@@ -1,9 +1,9 @@
+require 'utils/logger'
+require 'utils/failure_app'
+
 module API
 
 	class UnauthorizedError < StandardError; end
-
-	autoload :Logger, 'utils/logger'
-	autoload :FailureApp, 'utils/failure_app'
 
 	class Root < Grape::API
 

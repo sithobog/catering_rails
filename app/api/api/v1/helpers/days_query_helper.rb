@@ -1,6 +1,6 @@
 module API
 	module V1
-		class DailyRationQueryHelper
+		class DaysQueryHelper
 			#format :json
 
 			attr_reader :menu
