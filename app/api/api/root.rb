@@ -3,16 +3,16 @@ require 'utils/failure_app'
 
 module API
 
-	class UnauthorizedError < StandardError; end
+  class UnauthorizedError < StandardError; end
 
-	class Root < Grape::API
+  class Root < Grape::API
 
     #before do
     #  error!("401 Unauthorized", 401) unless authenticated
     #end
 
-		rescue_from Grape::Exceptions::Validation do |e|
-      Rack::Response.new({'errors' => e.message, 'param' => e.param}.to_json, 422, {"Content-Type" => "application/json"})
+    rescue_from Grape::Exceptions::Validation do |e|
+      Rack::Response.new({'errors' => e.message, 'param' => e.params}.to_json, 422, {"Content-Type" => "application/json"})
     end
 
     rescue_from Grape::Exceptions::ValidationErrors do |e|
@@ -27,10 +27,10 @@ module API
       Rack::Response.new({'errors' => "Invalid API public token", 'message' => "Unauthorized"}.to_json, 401, {"Content-Type" => "application/json"})
     end
 
-		use API::Logger
+    use API::Logger
 
-		mount API::V1::Root
-		#mount API::V2::Root
+    mount API::V1::Root
+    #mount API::V2::Root
 
-	end
+  end
 end
