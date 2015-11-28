@@ -26,7 +26,7 @@ module API
           end
 
           valid = DailyRationValidator.new(array_from_params).valid
-          
+
           if valid
             puts "Validation completed successful"
             ActiveRecord::Base.transaction do
@@ -36,6 +36,7 @@ module API
               end
             end
           end
+
 
         end
       end

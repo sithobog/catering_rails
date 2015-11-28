@@ -27,7 +27,7 @@ module API
         array_from_params.map do |x|
           all_dishes << { 
             id: x[:dish_id].to_i,
-            price: x[:price].to_f+1
+            price: x[:price].to_f
           }
          end
 

@@ -1,5 +1,6 @@
 require 'utils/logger'
 require 'utils/failure_app'
+require 'v1/root'
 
 module API
 
