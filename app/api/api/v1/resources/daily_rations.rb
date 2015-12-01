@@ -10,9 +10,8 @@ module API
       resource :daily_rations do
 
         post do
-          #find user
-          token = request.headers['X-Auth-Token']
-          user = User.find_by(authentication_token: token)
+          authenticate_by_token!
+          user = current_user
           #create array for saving in DB
           array_from_params = Array.new
           params.each do |k,v|

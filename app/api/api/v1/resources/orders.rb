@@ -19,16 +19,12 @@ module API
         }
 
         get do
-          #find user
-          token = request.headers['X-Auth-Token']
+          authenticate_by_token!
           sprint = request.headers['X-Sprint']
-          puts "SPRINT IS"
-          puts sprint
-          user = User.find_by(authentication_token: token)
+          user = current_user
 
           rations = DailyRation.includes(:dish,:daily_menu).where(user_id: user.id, sprint_id: sprint)
 
-          puts "rations is "
           new_rations = Array.new
           rations.each do |ration|
             daily_menu = { day_number: ration.daily_menu.day_number}

@@ -19,6 +19,8 @@ module API
       content_type :json, "application/json"
 			version 'v1', using: :path
 
+			helpers API::V1::Helpers
+
 			mount API::V1::Dishes
 			mount API::V1::Sprints
 			mount API::V1::DailyMenus

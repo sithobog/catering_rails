@@ -11,6 +11,7 @@ module API
 
 				desc "Return dishes from daily_menu sorted by category"
 				get do
+					authenticate_by_token!
 					DaysQueryHelper.new.menu
 				end
 

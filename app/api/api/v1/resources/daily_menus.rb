@@ -6,7 +6,8 @@ module API
 
 			resource :daily_menus do
 				desc "Return list of daily menus"
-				get do 
+				get do
+					authenticate_by_token!
 					DailyMenu.all
 				end
 			end

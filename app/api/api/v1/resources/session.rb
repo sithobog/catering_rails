@@ -49,8 +49,8 @@ module API
 	      }
 
 			  delete do
-			    access_token = headers['X-Auth-Token']
-			    user = User.where(authentication_token: access_token).first
+			    authenticate_by_token!
+			    user = current_user
 			    if user.nil?
 			      error!({error_code: 404, error_message: "Invalid access token."},401)
 			      return
