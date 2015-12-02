@@ -6,5 +6,6 @@ FactoryGirl.define do
     association :daily_menu
     association :sprint
     association :dish
+    association :user_id
   end
 end

@@ -24,7 +24,6 @@ module API
           user = current_user
 
           rations = DailyRation.includes(:dish,:daily_menu).where(user_id: user.id, sprint_id: sprint)
-
           new_rations = Array.new
           rations.each do |ration|
             daily_menu = { day_number: ration.daily_menu.day_number}

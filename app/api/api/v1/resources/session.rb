@@ -21,18 +21,18 @@ module API
 			    password = params[:password]
 
 			    if email.nil? or password.nil?
-			      error!({error_code: 404, error_message: "Invalid Email or Password."},401)
+			      error!({error_code: 404, error_message: "Invalid Email or Password."},422)
 			      return
 			    end
 
 			    user = User.where(email: email.downcase).first
 			    if user.nil?
-			      error!({error_code: 404, error_message: "Invalid Email or Password."},401)
+			      error!({error_code: 404, error_message: "Email is wrong."},422)
 			      return
 			    end
 
 			    if !user.valid_password?(password)
-			      error!({error_code: 404, error_message: "Invalid Email or Password."},401)
+			      error!({error_code: 404, error_message: "Password is wrong."},422)
 			      return
 			    else
 			  	 	# method ensure_authentication_token is called before save

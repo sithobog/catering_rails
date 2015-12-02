@@ -9,7 +9,12 @@ module API
 
 			resource :days do
 
-				desc "Return dishes from daily_menu sorted by category"
+        desc "Need token", headers: {
+          "X-Auth-Token" => {
+            description: "User token",
+            required: true
+        	}
+        }
 				get do
 					authenticate_by_token!
 					DaysQueryHelper.new.menu
