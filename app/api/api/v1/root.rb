@@ -3,8 +3,6 @@ require 'grape-swagger'
 module API
 	module V1
 
-		autoload :DailyMenus, 'v1/resources/daily_menus'
-		autoload :Dishes, 'v1/resources/dishes'
 		autoload :Sprints, 'v1/resources/sprints'
 		autoload :Helpers, 'v1/resources/helpers'
 		autoload :Sessions, 'v1/resources/session'
@@ -21,9 +19,7 @@ module API
 
 			helpers API::V1::Helpers
 
-			mount API::V1::Dishes
 			mount API::V1::Sprints
-			mount API::V1::DailyMenus
 			mount API::V1::Sessions
 			mount API::V1::DailyRations
 			mount API::V1::Days
