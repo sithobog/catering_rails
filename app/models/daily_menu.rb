@@ -1,5 +1,5 @@
 class DailyMenu < ActiveRecord::Base
-	before_save :delete_nils_in_dish_ids
+  before_save :delete_nils_in_dish_ids
 
   private
 

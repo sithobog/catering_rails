@@ -1,9 +1,9 @@
 class Sprint < ActiveRecord::Base
-	include AASM
+  include AASM
 
-	has_many :daily_rations
+  has_many :daily_rations
 
-	aasm column: 'state' do
+  aasm column: 'state' do
     state :pending, initial: true
     state :running
     state :closed

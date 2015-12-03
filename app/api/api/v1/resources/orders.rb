@@ -36,15 +36,12 @@ module API
             dish = { title: ration.dish.title, description: ration.dish.description}
             ration = ration.as_json(except: [:id, :user_id, :daily_menu_id, :sprint_id, :created_at, :updated_at,:dish_id])
 
-
-
             new_rations << ration.merge(daily_menu).merge(dish).merge(dish_children)
           end
           grouped_rations = new_rations.group_by {|elem| elem[:day_number]}
 
         end
       end
-
     end
   end
 end
