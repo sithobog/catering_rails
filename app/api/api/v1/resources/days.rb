@@ -19,9 +19,7 @@ module API
           authenticate_by_token!
           DaysQueryHelper.new.menu
         end
-
       end
-
     end
   end
 end

@@ -2,6 +2,7 @@ module API
   module V1
 
     autoload :DailyRationValidator, 'v1/helpers/daily_ration_validator'
+    autoload :ParamsArray, 'v1/helpers/params_array'
 
     class DailyRations < Grape::API
       version 'v1'
@@ -13,16 +14,7 @@ module API
           authenticate_by_token!
           user = current_user
           #create array for saving in DB
-          array_from_params = Array.new
-          params.each do |k,v|
-            array_from_params << {
-              sprint_id: v[:sprint_id],
-              daily_menu_id: v[:day_id],
-              dish_id: v[:dish_id],
-              quantity: v[:quantity],
-              price: v[:price],
-            }
-          end
+          array_from_params = ParamsArray.new(params).params_array
 
           valid = DailyRationValidator.new(array_from_params).valid
 

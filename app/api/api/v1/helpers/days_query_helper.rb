@@ -45,7 +45,6 @@ module API
           menu.delete('dish_ids')
         end
       end
-
     end
   end
 end

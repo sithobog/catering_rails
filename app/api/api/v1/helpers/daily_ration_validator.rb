@@ -10,7 +10,6 @@ module API
       end
 
       def validate_params(array_from_params)
-
         valid_price = validate_price(array_from_params)
         valid_limit = validate_limit(array_from_params)
 
@@ -18,9 +17,7 @@ module API
       end
 
       def validate_price(array_from_params)
-
         validated = true
-
         #grab unique days
         all_days = array_from_params.map{|x| x[:daily_menu_id]}.uniq
         all_dishes = Array.new
@@ -60,14 +57,11 @@ module API
                               params: [server_side: dishes_from_db, client_side: sorted_uniq_dishes],
                               message: "Price on client side is wrong"
         end
-
         return validated
       end
 
       def validate_limit(array_from_params)
-
         validated = true
-
         #grab unique days
         all_days = array_from_params.map{|x| x[:daily_menu_id]}.uniq
 
@@ -89,10 +83,8 @@ module API
             fail Grape::Exceptions::Validation, params: "Day #{key}", message: "Limit for day is outspent"
           end
         end
-
         return validated
       end
-
     end
   end
 end

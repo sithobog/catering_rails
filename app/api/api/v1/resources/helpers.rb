@@ -27,7 +27,6 @@ module API
       def current_user
         warden.user || @user
       end
-
     end
   end
 end

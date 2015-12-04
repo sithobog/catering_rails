@@ -5,7 +5,7 @@ module API
 
     autoload :Sprints, 'v1/resources/sprints'
     autoload :Helpers, 'v1/resources/helpers'
-    autoload :Sessions, 'v1/resources/session'
+    autoload :Sessions, 'v1/resources/sessions'
     autoload :DailyRations, 'v1/resources/daily_rations'
     autoload :Days, 'v1/resources/days'
     autoload :Orders, 'v1/resources/orders'

@@ -1,6 +1,8 @@
 module API
   module V1
 
+    autoload :OrderHelper, 'v1/helpers/order_helper'
+
     class Orders < Grape::API
       version 'v1'
       format :json
@@ -24,20 +26,9 @@ module API
           user = current_user
 
           rations = DailyRation.includes(:dish,:daily_menu).where(user_id: user.id, sprint_id: sprint)
-          new_rations = Array.new
-          rations.each do |ration|
-            daily_menu = { day_number: ration.daily_menu.day_number}
+          #return hash with daily_menu, dishes and children dishes
+          new_rations = OrderHelper.new(rations).rations_hash
 
-            if ration.dish.type == "BusinessLunch"
-              children = Dish.find(ration.dish.children_ids).as_json(only: [:id, :title])
-            end
-            dish_children = {children: children}
-
-            dish = { title: ration.dish.title, description: ration.dish.description}
-            ration = ration.as_json(except: [:id, :user_id, :daily_menu_id, :sprint_id, :created_at, :updated_at,:dish_id])
-
-            new_rations << ration.merge(daily_menu).merge(dish).merge(dish_children)
-          end
           grouped_rations = new_rations.group_by {|elem| elem[:day_number]}
 
         end
